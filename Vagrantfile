@@ -16,6 +16,12 @@ Vagrant.configure("2") do |config|
   config.vm.box = "centos-7.0_64"
   config.vm.hostname = "SuperDev"
 
+  config.ssh.username = 'vagrant'
+  config.ssh.password = 'vagrant'
+  config.ssh.insert_key = false
+  #config.ssh.private_key_path = ["~/.ssh/id_rsa"]
+  #config.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/authorized_keys"
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -76,9 +82,4 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
-  #config.ssh.username = 'super'
-  config.ssh.password = 'super'
-  config.ssh.insert_key = false
-  # config.ssh.private_key_path = ["~/.ssh/id_rsa"]
-  # config.vm.provision "file", source: "~/.ssh/id_rsa.pub", destination: "~/.ssh/authorized_keys"
 end
